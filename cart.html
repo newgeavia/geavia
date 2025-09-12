@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Geavia</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .cart-container { max-width: 900px; margin: 50px auto; padding: 20px; background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    .cart-item { display:flex; align-items:center; justify-content:space-between; padding:15px; border-bottom:1px solid #eee;}
+    .cart-item img { width:80px; border-radius:10px; }
+    .cart-item-info { flex:1; margin-left:15px; }
+    .cart-item-name { font-size:18px; font-weight:600; color:#333; }
+    .cart-item-price { font-size:16px; color:#d63384; font-weight:500; }
+    .remove-btn { background:#ff4d4d; color:#fff; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; }
+    .cart-summary { text-align:right; margin-top:20px; }
+    .checkout-btn { background:#d63384; color:#fff; padding:12px 20px; border:none; border-radius:8px; font-size:18px; cursor:pointer; }
+    .checkout-btn:hover { background:#ad1457; }
+  </style>
+</head>
+<body>
+
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-summary">
+      <h3>Total: ₹<span id="cart-total">0</span></h3>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartItemsDiv = document.getElementById("cart-items");
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      cartItemsDiv.innerHTML = "";
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItemsDiv.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="cart-item-info">
+              <p class="cart-item-name">${item.name}</p>
+              <p class="cart-item-price">₹${item.price}</p>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+      });
+
+      document.getElementById("cart-total").textContent = total;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    loadCart();
+  </script>
+  <!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243772987.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geavia • Product</title>
+  <link rel="stylesheet" href="assets/css/product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a> › 
+    <a href="categories.html">Earrings</a> › 
+    <span>Rose Gold Pendant</span>
+  </nav>
+
+  <!-- Product Section -->
+  <section class="product-page">
+    <div class="gallery">
+      <img src="assets/images/prod1.jpg" alt="Main Product" class="main-img" id="mainImage">
+      <div class="thumbs">
+        <img src="assets/images/prod1.jpg" alt="thumb" onclick="changeImage(this)">
+        <img src="assets/images/prod2.jpg" alt="thumb" onclick="changeImage(this)">
+        <img src="assets/images/prod3.jpg" alt="thumb" onclick="changeImage(this)">
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>Rose Gold Pendant</h1>
+      <div class="rating">
+        ★★★★☆ <span>(120 reviews)</span>
+      </div>
+      <p class="price">
+        <span class="old-price">₹2,499</span>
+        <span class="new-price">₹1,999</span>
+      </p>
+
+      <div class="actions">
+        <button class="btn-buy">Buy Now</button>
+        <button class="btn-cart">Add to Cart</button>
+      </div>
+
+      <ul class="trust-badges">
+        <li><i class="fa-solid fa-shield"></i> 100% Secure Payment</li>
+        <li><i class="fa-solid fa-truck"></i> Free Shipping</li>
+        <li><i class="fa-solid fa-rotate-left"></i> Easy Returns</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section class="tabs">
+    <button class="tab active" onclick="openTab('desc')">Description</button>
+    <button class="tab" onclick="openTab('details')">Details</button>
+    <button class="tab" onclick="openTab('reviews')">Reviews</button>
+    <button class="tab" onclick="openTab('faq')">FAQ</button>
+  </section>
+  <div class="tab-content active" id="desc">
+    <p>This elegant Rose Gold Pendant is designed with minimalistic details. Perfect for casual and festive wear.</p>
+  </div>
+  <div class="tab-content" id="details">
+    <ul>
+      <li>Material: 925 Silver</li>
+      <li>Plating: Rose Gold</li>
+      <li>Weight: 12g</li>
+      <li>Warranty: 1 year</li>
+    </ul>
+  </div>
+  <div class="tab-content" id="reviews">
+    <p>⭐️⭐️⭐️⭐️☆ - "Very beautiful pendant. Worth the price!"</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ - "Fast delivery and premium packaging."</p>
+  </div>
+  <div class="tab-content" id="faq">
+    <p><b>Q:</b> Is this pure silver? <br><b>A:</b> Yes, it is made of 925 sterling silver with rose gold plating.</p>
+  </div>
+
+  <!-- Related Products -->
+  <section class="related">
+    <h2>You may also like</h2>
+    <div class="related-grid">
+      <div class="product-card">
+        <img src="assets/images/prod4.jpg" alt="">
+        <h3>Floral Necklace</h3>
+        <p class="price"><span class="old-price">₹2,999</span> <span class="new-price">₹2,299</span></p>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/prod5.jpg" alt="">
+        <h3>Elegant Hoops</h3>
+        <p class="price"><span class="old-price">₹1,999</span> <span class="new-price">₹1,499</span></p>
+      </div>
+      <div class="product-card">
+        <img src="assets/images/prod6.jpg" alt="">
+        <h3>Halo Ring</h3>
+        <p class="price"><span class="old-price">₹1,499</span> <span class="new-price">₹999</span></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Tab Switch
+    function openTab(id) {
+      document.querySelectorAll(".tab, .tab-content").forEach(el => el.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      event.target.classList.add("active");
+    }
+    // Image Switch
+    function changeImage(el) {
+      document.getElementById("mainImage").src = el.src;
+    }
+  </script>
+</body>
+</html>

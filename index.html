@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geavia • Elegant Jewellery</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- 🔹 Top Bar -->
+  <div class="top-bar">
+    <p>Pan India Free Shipping!</p>
+  </div>
+
+  <!-- 🔹 Main Header -->
+  <header class="main-header">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Geavia Logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder='Search "Rings"' />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-icons">
+      <a href="account.html"><i class="fas fa-user"></i><span>Account</span></a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Log in</span></a>
+      <a href="wishlist.html"><i class="fas fa-heart"></i><span>Wishlist</span></a>
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Cart (0)</span></a>
+    </div>
+  </header>
+
+  <!-- 🔹 Navigation (only 5 categories) -->
+  <nav class="category-nav">
+  <a href="Wedding.html">Wedding</a>
+  <a href="Bangles.html">Bangles</a>
+  <a href="Earrings.html">Earrings</a>
+  <a href="Necklaces.html">Necklaces</a>
+  <a href="All.html">All Jewellery</a>
+</nav>
+
+  <!-- 🔹 Hero Slider -->
+  <section class="hero">
+    <div class="slider" id="slider">
+      <div class="slide active"><img src="assets/images/slide1.jpg" alt="Discover jewellery"></div>
+      <div class="slide"><img src="assets/images/slide2.jpg" alt="Premium collections"></div>
+      <div class="slide"><img src="assets/images/slide3.jpg" alt="Festive offers"></div>
+    </div>
+    <button class="prev" aria-label="Previous slide" onclick="prevSlide()">&#10094;</button>
+    <button class="next" aria-label="Next slide" onclick="nextSlide()">&#10095;</button>
+  </section>
+
+  <!-- 🔹 Shop by Category Section -->
+<section class="categories">
+  <h2 class="section-title">Shop by Category</h2>
+
+  <div class="category-grid">
+    <a href="wedding.html" class="cat-card">
+      <img src="assets/images/wedding.jpg" alt="Wedding">
+      <h3>Wedding</h3>
+    </a>
+
+    <a href="bangles.html" class="cat-card">
+      <img src="assets/images/bangles.jpg" alt="Bangles">
+      <h3>Bangles</h3>
+    </a>
+
+    <a href="earrings.html" class="cat-card">
+      <img src="assets/images/earrings.jpg" alt="Earrings">
+      <h3>Earrings</h3>
+    </a>
+
+    <a href="necklaces.html" class="cat-card">
+      <img src="assets/images/necklaces.jpg" alt="Necklaces">
+      <h3>Necklaces</h3>
+    </a>
+
+    <a href="all.html" class="cat-card">
+      <img src="assets/images/all.jpg" alt="All Jewellery">
+      <h3>All Jewellery</h3>
+    </a>
+  </div>
+</section>
+
+    <!-- 🔹 Popular Products -->
+<section id="popular" class="products popular-products">
+  <div class="section-head">
+    <h2>Popular Products</h2>
+  </div>
+  <div class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod1.jpg" alt="Rose Gold Pendant">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Rose Gold Pendant</h3>
+        <p class="price">
+          <span class="new-price">₹1,999</span>
+          <span class="old-price">₹2,499</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod2.jpg" alt="Pink Drop Pendant">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Pink Drop Pendant</h3>
+        <p class="price">
+          <span class="new-price">₹1,999</span>
+          <span class="old-price">₹2,499</span>
+        </p>
+        <<button class="add-to-cart-btn" 
+  onclick="addToCart('Pink Drop Pendant', 1999, 'assets/images/prod2.jpg')">
+  Add to Cart
+</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod3.jpg" alt="Classic Stud Earrings">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Classic Stud Earrings</h3>
+        <p class="price">
+          <span class="new-price">₹1,999</span>
+          <span class="old-price">₹2,499</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod4.jpg" alt="Minimal Chain">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Minimal Chain</h3>
+        <p class="price">
+          <span class="new-price">₹1,999</span>
+          <span class="old-price">₹2,499</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+    </div> <!-- product-grid end -->
+<div class="see-more-wrap">
+  <button class="btn-view-more">View More</button>
+</div>
+</section>
+
+  </div>
+</section>
+
+  <!-- 🔹 Shop By Price -->
+<section class="shop-by-price">
+  <h2>Shop By Price</h2>
+  <div class="price-grid">
+    <a href="categories.html#under999" class="price-card price-999">
+      <h3>Under ₹999</h3>
+      <p>Trendy jewellery under budget</p>
+    </a>
+    <a href="categories.html#under2999" class="price-card price-2999">
+      <h3>Under ₹2,999</h3>
+      <p>Premium designs at best price</p>
+    </a>
+  </div>
+</section>
+
+  <!-- 🔹 New Arrivals -->
+<section id="featured" class="products new-arrivals">
+  <div class="section-head">
+    <h2>New Arrivals</h2>
+  </div>
+  <div class="product-grid">
+    <!-- 10 Demo Products -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod1.jpg" alt="Rose Gold Pendant">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Rose Gold Wreath Pendant</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod2.jpg" alt="Pink Drop Pendant">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Pink Drop Pendant</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod3.jpg" alt="Classic Stud Earrings">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Classic Stud Earrings</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod4.jpg" alt="Minimal Chain">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Minimal Chain</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod5.jpg" alt="Floral Necklace">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Floral Necklace</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- 2nd Row -->
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod6.jpg" alt="Hearts Bracelet">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Hearts Bracelet</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod7.jpg" alt="Elegant Hoops">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Elegant Hoops</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod8.jpg" alt="Gemstone Pendant">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Gemstone Pendant</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod9.jpg" alt="Royal Necklace">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Royal Necklace</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html" class="product-img">
+        <img src="assets/images/prod10.jpg" alt="Halo Ring">
+      </a>
+      <div class="product-info">
+        <h3 class="product-name">Halo Ring</h3>
+        <p class="price">
+          <span class="new-price">₹12,999</span>
+          <span class="old-price">₹15,999</span>
+        </p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View More -->
+  <div class="see-more-wrap">
+    <button class="btn-view-more">View More</button>
+  </div>
+</section>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- Useful Links -->
+    <div class="footer-col">
+  <h4>Useful Links</h4>
+  <ul>
+    <li><a href="delivery.html">Delivery Information</a></li>
+    <li><a href="shipping.html">International Shipping</a></li>
+    <li><a href="payment.html">Payment Options</a></li>
+    <li><a href="track.html">Track your Order</a></li>
+    <li><a href="returns.html">Returns</a></li>
+    <li><a href="store.html">Find a Store</a></li>
+  </ul>
+</div>
+
+    <!-- Information -->
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Offers & Contest Details</a></li>
+        <li><a href="#">Help & FAQs</a></li>
+        <li><a href="#">About Geavia</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+  <li><a href="tel:+916284447401">📞 +91 8147349242</a></li>
+  <li><a href="https://wa.me/916284447401" target="_blank">💬 WhatsApp: +91 6284447401</a></li>
+  <li><a href="mailto:geaviaofficial@gmail.com">✉️ geaviaofficial@gmail.com</a></li>
+</ul>
+    </div>
+
+    <!-- Social -->
+<div class="footer-col">
+  <h4>Follow Us</h4>
+  <div class="social-links">
+    <a href="https://www.instagram.com/geavia_jewellery/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+</div>
+
+  <!-- Payment icons -->
+  <div class="payment-icons">
+    <i class="fa-brands fa-cc-visa"></i>
+    <i class="fa-brands fa-cc-mastercard"></i>
+    <i class="fa-brands fa-cc-amex"></i>
+    <i class="fa-brands fa-cc-paypal"></i>
+    <i class="fa-brands fa-cc-discover"></i>
+    <i class="fa-brands fa-cc-diners-club"></i>
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>© 2025 Geavia. All Rights Reserved.</p>
+    <p>
+      <a href="#">Terms & Conditions</a> | 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Disclaimer</a>
+    </p>
+  </div>
+</footer>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243772987.js"></script>
+<!-- End of HubSpot Embed Code -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

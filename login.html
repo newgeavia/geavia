@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login with OTP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h2>Login with Mobile Number</h2>
+  <input type="text" id="phone" placeholder="+91XXXXXXXXXX">
+  <div id="recaptcha-container"></div>
+  <button onclick="sendOTP()">Send OTP</button>
+
+  <div id="otpSection" style="display:none;">
+    <input type="text" id="otp" placeholder="Enter OTP">
+    <button onclick="verifyOTP()">Verify OTP</button>
+  </div>
+
+  <h3 id="status"></h3>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+
+  <script>
+    // 👉 Step 1: Paste your Firebase Config here (from Firebase Console)
+    const firebaseConfig = {
+      apiKey: "PASTE_HERE",
+      authDomain: "PASTE_HERE.firebaseapp.com",
+      projectId: "PASTE_HERE",
+      storageBucket: "PASTE_HERE.appspot.com",
+      messagingSenderId: "PASTE_HERE",
+      appId: "PASTE_HERE"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    let confirmationResult;
+
+    // 👉 Step 2: Send OTP
+    function sendOTP(){
+      let phone = document.getElementById("phone").value;
+      if(!phone){ alert("Enter phone number with +91"); return; }
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        size: 'invisible'
+      });
+      auth.signInWithPhoneNumber(phone, window.recaptchaVerifier)
+        .then((result)=>{
+          confirmationResult = result;
+          document.getElementById("otpSection").style.display = "block";
+          document.getElementById("status").innerText = "OTP Sent!";
+        }).catch((error)=>{
+          alert(error.message);
+        });
+    }
+
+    // 👉 Step 3: Verify OTP
+    function verifyOTP(){
+      let code = document.getElementById("otp").value;
+      confirmationResult.confirm(code).then((result)=>{
+        let user = result.user;
+        document.getElementById("status").innerText = "Login Success! UID: " + user.uid;
+
+        // 👉 Step 4: Save user data in Firestore
+        db.collection("users").doc(user.uid).set({
+          uid: user.uid,
+          phone: user.phoneNumber,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true });
+      }).catch((error)=>{
+        alert("Invalid OTP: " + error.message);
+      });
+    }
+  </script>
+</body>
+</html>
